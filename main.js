@@ -24,12 +24,12 @@ module.exports = function g(value) {
     const current = Number(target[i]);
     total += current * (digits[i] || 0);
     if (current === 7) {
-      total += (value % Math.pow(10, i) || 1);
+      total += (value % Math.pow(10, target.length - i - 1)) + 1;
       return total;
     }
     if (current > 7) {
       total -= (digits[i] || 0);
-      total += Math.pow(10, i);
+      total += Math.pow(10, target.length - i - 1);
     }
   }
 

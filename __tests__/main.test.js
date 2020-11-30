@@ -14,11 +14,9 @@ describe('matching cities to foods', () => {
 
   it('random', () => {
     const target = Math.round(Math.random() * 100000);
-
     let start = Date.now();
     const result = g(target);
     const resultUsedTimes = Date.now() - start;
-
     let total = 0;
     for (let i = 0; i <= target; i++) {
       if (String(i).split('').includes('7') === true) total += 1;
@@ -26,6 +24,6 @@ describe('matching cities to foods', () => {
     const totalUsedTimes = Date.now() - start;
 
     expect(result).toBe(total);
-    expect(totalUsedTimes > resultUsedTimes).toBe(true);
+    expect(totalUsedTimes >= resultUsedTimes).toBe(true);
   });
 });
